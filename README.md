@@ -1,5 +1,10 @@
 # PSPD
 
+| Aluno | Matrícula |
+| :-- | :--: |
+| Lucas Gabriel Bezerra | 180125770 |
+| Lucas Ursulino Boaventura | 180114093 |
+
 ## LAB. Map Reduce
 
 Nesse laboratório foi colocado em prática os aprendizados sobre o uso do padigma Map Reduce no framework do Hadoop.
@@ -50,3 +55,5 @@ O resultado do comando utilizando o script é o seguinte:
 - Na terceira etapa, foi colocado o código a prova com o auxílio do framework do hadoop, conforme o comando e o print:
 
 ![](./assets/resultado-hadoop.png)
+
+## Atividade 2
