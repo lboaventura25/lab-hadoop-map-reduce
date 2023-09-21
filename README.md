@@ -11,19 +11,19 @@ Nesse laboratório foi colocado em prática os aprendizados sobre o uso do padig
 
 ## Atividade 1
 
-Para esse exercício, era necessário a listagem de notas para filmes de cada usuário seguindo o arquivo **movies.txt**.
+Para esse exercício, era necessário a listagem de notas para filmes de cada usuário seguindo o arquivo **movies_rating/movies.txt**.
 
-- Na primeira etapa foi feito o código **normal.py** sem o uso do map reduce, com o código rodando através do comando:
+- Na primeira etapa foi feito o código **movies_rating/normal.py** sem o uso do map reduce, com o código rodando através do comando:
 
 ```sh
  python normal.py
 ```
 
-- Na segunda etapa foi feito o código **mapper.py** e **reducer.py**, com o código rodando através do comando:
+- Na segunda etapa foi feito o código **movies_rating/mapper.py** e **movies_rating/reducer.py**, com o código rodando através do comando:
 
 ```sh
 # cat movies.txt | python3 mapper.py | sort -k 1,1 | python3 reducer.py
-sh run_map_reduce.sh
+cd movies_rating/ && sh run_map_reduce.sh
 ```
 
 As mudanças feitas no código, foi primeiro, a quebra da etapa de mapeamento (_mapper.py_) dos dados advindos do input do processo (_movies.txt_). E também a criação da etapa de consolidação dos dados ordenados (_reducer.py_) que foram output do processo de mapeamento.
@@ -31,6 +31,7 @@ As mudanças feitas no código, foi primeiro, a quebra da etapa de mapeamento (_
 E para respeitar esse processo foi feito a leitura através do stream de input dos processos com o auxílio do seguinte código:
 
 ```python3
+"""mapper.py"""
 mapper_input = sys.stdin.readlines()
 
 # Despreza a primeira linha de cabeçalho do arquivo
@@ -50,10 +51,10 @@ O resultado do comando utilizando o script é o seguinte:
 
 ./hadoop-3.3.6/bin/hadoop jar hadoop-streaming-3.3.6.jar -input /user/lucas/movies.txt -output /user/lucas/output-la.txt -mapper ../LABS/MOVIES/mapper.py -reducer ../LABS/MOVIES/reducer.py
 ```
-![Imagem](./assets/resultado_map_reduce_local.png)
+![Imagem](./assets/ex1-resultado_map_reduce_local.png)
 
 - Na terceira etapa, foi colocado o código a prova com o auxílio do framework do hadoop, conforme o comando e o print:
 
-![](./assets/resultado-hadoop.png)
+![](./assets/ex1-resultado-hadoop.png)
 
 ## Atividade 2
